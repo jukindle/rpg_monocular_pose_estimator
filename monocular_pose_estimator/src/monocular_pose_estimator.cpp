@@ -199,10 +199,9 @@ void MPENode::imageCallback(const sensor_msgs::Image::ConstPtr& image_msg)
   {
     cv::Mat visualized_image = image.clone();
     cv::cvtColor(visualized_image, visualized_image, CV_GRAY2RGB);
-    if (found_body_pose)
-    {
-      trackable_object_.augmentImage(visualized_image);
-    }
+    
+    trackable_object_.augmentImage(visualized_image);
+    
 
     // Publish image for visualization
     cv_bridge::CvImage visualized_image_msg;
